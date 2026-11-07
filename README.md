@@ -16,10 +16,8 @@ It also trims noisy test output and blocks shell commands that would dump creden
 You need [Rust](https://rustup.rs) installed (it provides `cargo`).
 
 ```bash
-# 1. install (run this inside a clone of this repo)
-git clone <this-repo-url>
-cd ghost-ctx
-cargo install --path .
+# 1. install from crates.io
+cargo install ghost-ctx
 
 # 2. register the hooks in the project you want to optimize
 cd your-project
@@ -29,7 +27,19 @@ ghost-ctx init          # writes/merges .claude/settings.json
 ghost-ctx stats
 ```
 
-What `cargo install --path .` means: `cargo install` builds the program and copies the `ghost-ctx` binary into `~/.cargo/bin`. `--path .` tells it to build the code in the current folder (the clone) instead of downloading a published crate. Make sure `~/.cargo/bin` is on your `PATH`, then check with `ghost-ctx --version`. To update later, `git pull` and run the same command again with `--force`.
+What `cargo install ghost-ctx` does: it downloads the published crate from [crates.io](https://crates.io/crates/ghost-ctx), builds it, and copies the `ghost-ctx` binary into `~/.cargo/bin`. Make sure `~/.cargo/bin` is on your `PATH`, then check with `ghost-ctx --version`. To update later, run the same command with `--force`.
+
+### Install from source
+
+Use this to try unreleased changes or to hack on the code:
+
+```bash
+git clone https://github.com/justinbalaguer/ghost-ctx.git
+cd ghost-ctx
+cargo install --path .
+```
+
+`--path .` tells cargo to build the code in the current folder instead of downloading the published crate. To update later, `git pull` and run the same command with `--force`.
 
 `init` is idempotent and keeps your existing settings and hooks. If `settings.json` is not valid JSON it refuses to touch it.
 

@@ -1,8 +1,12 @@
 [package]
 name = "ghost-ctx"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 license = "MIT"
+repository = "https://github.com/justinbalaguer/ghost-ctx"
+readme = "README.md"
+keywords = ["claude-code", "tokens", "llm", "tree-sitter", "cli"]
+categories = ["command-line-utilities", "development-tools"]
 description = "Local token saver for Claude Code: skeleton reads, secret redaction, test-output condensing"
 
 [dependencies]
